@@ -1,20 +1,16 @@
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import type { QueryClient } from "@tanstack/react-query";
 import {
+  createRootRouteWithContext,
   HeadContent,
   Scripts,
-  createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
-
-import ClerkProvider from "../integrations/clerk/provider";
-
-import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
-
-import appCss from "../styles.css?url";
-
-import type { QueryClient } from "@tanstack/react-query";
-import Navbar from "#/components/Navbar";
 import { Crosshair } from "lucide-react";
+import Navbar from "#/components/Navbar";
+import ClerkProvider from "../integrations/clerk/provider";
+import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
+import appCss from "../styles.css?url";
 
 interface MyRouterContext {
   queryClient: QueryClient;
@@ -37,7 +33,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         name: "description",
-        content: "Discover, publish, and operate reusable agent capabilities from a route-driven workspace"
+        content:
+          "Discover, publish, and operate reusable agent capabilities from a route-driven workspace",
       },
     ],
     links: [
@@ -54,7 +51,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        
+        {/** biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
@@ -63,13 +60,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <div id="root-layout">
             <header>
               <div className="frame">
-                <Navbar/>
+                <Navbar />
               </div>
             </header>
             <main>
-              <div className="frame">
-                {children}
-              </div>
+              <div className="frame">{children}</div>
             </main>
           </div>
           <TanStackDevtools
