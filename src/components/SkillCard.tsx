@@ -73,7 +73,7 @@ const SkillCard = ({
             type="button"
             className="copy"
             onClick={handleCopy}
-            aria-label="COpy install command"
+            aria-label="Copy install command"
           >
             {copied ? (
               <Check size={16} className="text-emerald-700" />

@@ -16,7 +16,7 @@ function Home() {
           </h1>
           <p>
             A high-performance registry for procedural agent skills. Discover,
-            publish and operate reusable agent capabilitie from a route-driven
+            publish and operate reusable agent capabilities from a route-driven
             workspace.
           </p>
         </div>
@@ -37,7 +37,7 @@ function Home() {
           </h2>
           <p>
             {" "}
-            Latest skills loaded fro Firestore in descending creation order.
+            Latest skills loaded from Firestore in descending creation order.
           </p>
         </div>
         <div>
@@ -48,7 +48,7 @@ function Home() {
               ))}
             </div>
           ) : (
-            <p>No skills have been create yet.</p>
+            <p>No skills have been created yet.</p>
           )}
         </div>
       </section>
