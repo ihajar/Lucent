@@ -33,12 +33,12 @@ const config = defineConfig({
 		devtools(),
 		netlify(),
 		tailwindcss(),
-		tanstackStart(),
-		viteReact({
+		tanstackStart({
 			babel: {
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
+		viteReact(),
 	],
 });
 

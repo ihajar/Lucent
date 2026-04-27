@@ -15,3 +15,8 @@ todos.json
 # Local Netlify folder
 .netlify
 .env.local
+
+
+# firebae dataconnect
+.firebae
+dataconnect/.dataconnect
