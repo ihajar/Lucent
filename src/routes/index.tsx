@@ -1,11 +1,33 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { Terminal } from "lucide-react";
+import { usePostHog } from "posthog-js/react";
 import SkillCard from "#/components/SkillCard";
-import { dummySkills } from "#/lib/dummySkills";
+import { getSkills } from "#/dataconnect-generated";
+import { dataConnect } from "#/lib/firebase";
 
-export const Route = createFileRoute("/")({ component: Home });
+const getSkillsFn = createServerFn({ method: "GET" }).handler(async () => {
+  try {
+    const { data } = await getSkills(dataConnect, {
+      searchTerm: "",
+      limit: 10,
+    });
+    return data.skills;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+});
+
+export const Route = createFileRoute("/")({
+  component: Home,
+  loader: () => getSkillsFn(),
+});
 
 function Home() {
+  const posthog = usePostHog();
+  const skills = Route.useLoaderData();
+
   return (
     <div id="home">
       <section className="hero">
@@ -21,11 +43,19 @@ function Home() {
           </p>
         </div>
         <div className="actions">
-          <Link to="/skills" className="btn-primary">
+          <Link
+            to="/skills"
+            className="btn-primary"
+            onClick={() => posthog.capture("browse_registry_clicked")}
+          >
             <Terminal size={18} />
             <span>Browse Registry</span>
           </Link>
-          <Link to="/skills/new" className="btn-secondary">
+          <Link
+            to="/skills/new"
+            className="btn-secondary"
+            onClick={() => posthog.capture("publish_skill_clicked")}
+          >
             Publish Skill
           </Link>
         </div>
@@ -41,9 +71,9 @@ function Home() {
           </p>
         </div>
         <div>
-          {dummySkills.length > 0 ? (
+          {skills.length > 0 ? (
             <div className="skills-grid">
-              {dummySkills.map((skill) => (
+              {skills.map((skill) => (
                 <SkillCard key={skill.id} {...skill} />
               ))}
             </div>

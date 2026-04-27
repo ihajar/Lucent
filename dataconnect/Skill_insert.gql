@@ -1,0 +1,17 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  skill_insert(
+    data: {
+      id: "11111111222233334444555555555558", 
+      authorClerkId: "user_3CohIDuBCe2tJJJ8FsxDnt6fppb", 
+      createdAt: "2025-06-18T08:30:00Z", 
+      description: "Master Next.js 14+ App Router, server components, client components, and advanced routing patterns.",
+      installCommand: "npx create-next-app@latest", 
+      promptConfig: "You are an expert Next.js developer specializing in the App Router architecture and React Server Components.", 
+      tags: ["nextjs", "app-router", "react", "server-components", "ssr"], 
+      title: "Next.js App Router", 
+      usageExample: "import { Suspense } from 'react';\n\nasync function getData() {\n  const res = await fetch('https://api.example.com/data');\n  return res.json();\n}\n\nexport default async function Page() {\n  const data = await getData();\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <main>{/* Your component */}</main>\n    </Suspense>\n  );\n}"
+    }
+  )
+}
