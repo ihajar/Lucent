@@ -2,9 +2,9 @@
 # Only one un-named mutation is allowed per file.
 mutation {
   user_insert(data: {
-    clerkId: "user_3CohIDuBCe2tJJJ8FsxDnt6fppb",
-    email: "misaa.lunaa@gmail.com", 
-    imageUrl: "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18zQ29oSUtzblA0RDhlb1F0b3J4R2M0dEhKdEgifQ", 
-    username: "luna"
+    clerkId: "user_3CwrtgNEUBOufBuiZegW7HT9yfz",
+    email: "hajarhamaidii@gmail.com", 
+    imageUrl: "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18zQ3dydGVKSlAzeFdtWGxreWpZUTNuWkFDSm0ifQ", 
+    username: "hadjer"
     })
 }

@@ -44,7 +44,7 @@ function Home() {
         </div>
         <div className="actions">
           <Link
-            to="/skills"
+            to="/"
             className="btn-primary"
             onClick={() => posthog.capture("browse_registry_clicked")}
           >
@@ -52,7 +52,7 @@ function Home() {
             <span>Browse Registry</span>
           </Link>
           <Link
-            to="/skills/new"
+            to="/"
             className="btn-secondary"
             onClick={() => posthog.capture("publish_skill_clicked")}
           >

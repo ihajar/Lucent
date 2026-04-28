@@ -3,6 +3,7 @@
 # Only one un-named query is allowed per file.
 query {
   skills{
+    id
     author {
       clerkId
       email

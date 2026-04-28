@@ -1,0 +1,41 @@
+mutation CreateSkill (
+    $authorClerkId: String!
+    $title: String!
+    $description: String!
+    $tags: [String!]!
+    $installCommand: String!
+    $promptConfig: String!
+    $usageExample: String!
+) @auth(level: USER) {
+    skill_insert(data:  {
+       author: { clerkId: $authorClerkId } 
+       title: $title
+       description: $description
+       tags: $tags
+       installCommand: $installCommand
+       promptConfig: $promptConfig
+       usageExample: $usageExample
+    })
+}
+
+mutation UpdateSkill(
+    $id: UUID!
+    $title: String!
+    $description: String!
+    $tags: [String!]!
+    $installCommand: String!
+    $promptConfig: String!
+    $usageExample: String!
+) @auth(level: USER) {
+    skill_update(
+       key: { id: $id }
+       data: {
+        title: $title
+        description: $description
+        tags: $tags
+        installCommand: $installCommand
+        promptConfig: $promptConfig
+        usageExample: $usageExample
+       }
+    )
+}
